@@ -34,7 +34,7 @@ pipeline AirportPipeline {
             "Altitude" oftype decimal,
             "Zeitzone" oftype decimal,
             "DST" oftype text,
-            "Zeitzonendatenbank" oftype text,
+            "Zeitzonen-Datenbank" oftype text,
             "geo_punkt" oftype text
         ];
     }

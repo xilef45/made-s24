@@ -1,0 +1,73 @@
+pipeline TrainCargoPipeline {
+
+    TrainCargoExtractor -> TrainCargoTextFileInterpreter;
+
+    TrainCargoTextFileInterpreter
+        -> TrainCargoHeaderDeleter
+        -> TrainCargoCSVInterpreter
+        -> TrainCargoHeaderWriter_AtoE
+        -> TrainCargoHeaderWriter_ATtoAU
+        -> TrainCargoTableInterpreter
+        -> TrainCargoLoader;
+    
+    block TrainCargoExtractor oftype HttpExtractor {
+        url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46131-0014_00.csv";
+    }
+
+    block TrainCargoTextFileInterpreter oftype TextFileInterpreter {
+        encoding: "latin2";
+     }
+
+    block TrainCargoHeaderDeleter oftype TextLineDeleter{
+        lines: [1, 2, 3, 4, 5, 6, 7];
+    }
+    
+    block TrainCargoCSVInterpreter oftype CSVInterpreter {
+        delimiter: ";";
+    }
+    
+    block TrainCargoHeaderWriter_AtoE oftype CellWriter { at: range A1:E1; write: ["year", "month", "goods_id","goods_name","goods_source"]; }
+
+    block TrainCargoHeaderWriter_ATtoAU oftype CellWriter { at: range AT1:AU1; write: ["abroad","total"]; }
+    
+    valuetype numeric oftype integer {
+    constraints: [ numericContraint ];
+    }
+
+    constraint numericContraint on integer :
+        value >= 0;
+    
+    valuetype month oftype text {
+        constraints: [ monthContraint ];
+    }
+
+    constraint monthContraint on text :
+        value in ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+    valuetype goods_id oftype text {
+        constraints: [ goods_idContraint ];
+    }
+
+    constraint goods_idContraint oftype RegexConstraint{
+        regex: /^(NST7-)([\dA-Z]){3}$/;
+    }
+
+    block TrainCargoTableInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            "year" oftype numeric,
+            "month" oftype month,
+            "goods_id" oftype goods_id,
+            "goods_name" oftype text,
+            "goods_source" oftype text,
+            "abroad" oftype integer,
+            "total" oftype integer
+        ];
+    }
+
+    block TrainCargoLoader oftype SQLiteLoader {
+        table: "goods";
+        file: "./goodsTransportedByTrain.sqlite";
+    }
+
+}

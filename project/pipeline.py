@@ -10,10 +10,14 @@ urls = [
 ]
 
 excelSheets = [pd.ExcelFile(BytesIO(requests.get(url).content)) for url in urls]
-
+pd.set_option('future.no_silent_downcasting', True)
 # remove the first line because of the last change data in A1
-sheet_carbonPrice = pd.read_excel(excelSheets[0], excelSheets[0].sheet_names[0], skiprows=1)
-sheet_carbonPrice.dropna(subset=['Unique ID'], inplace=True)
+sheet_carbonPrice = pd.read_excel(excelSheets[0], excelSheets[0].sheet_names[3], skiprows=1)
+sheet_carbonPrice.dropna(subset=['Name of the initiative'], inplace=True)
+# remove - from cells (no data)
+sheet_carbonPrice.replace(to_replace='-', value=0, inplace=True)
+for year in sheet_carbonPrice.columns[8:]:
+    sheet_carbonPrice[year] = pd.to_numeric(sheet_carbonPrice[year], errors='coerce')
 sheet_carbonPrice.convert_dtypes()
 
 sheet_emissions = excelSheets[1].parse(excelSheets[1].sheet_names[2])

@@ -31,7 +31,7 @@ This data source provides data on carbon pricing policies around the world.
 
 ### Datasource2: Emissions Database for Global Atmospheric Research: Greenhouse Gas emissions of all world countries
 * Metadata URL: https://edgar.jrc.ec.europa.eu/booklet/EDGARv8.0_FT2022_GHG_booklet_2023.xlsx (info sheet)
-* Data URL: https://edgar.jrc.ec.europa.eu/booklet/EDGARv8.0_FT2022_GHG_booklet_2023.xlsx (GHG-* and LULUCF-* sheets)
+* Data URL: https://edgar.jrc.ec.europa.eu/booklet/EDGARv8.0_FT2022_GHG_booklet_2023.xlsx (rest of the sheets)
 * Data Type: XLSX
 * License: CC BY 4.0 DEED
 
@@ -44,12 +44,16 @@ The project is structured into the following work packages. These are documented
 
 1. Analyse the data sources [#1][i1]
 2. Data pre-processing [#2][i2]
-3. Perform analysis [#3][i3]
-4. Make visualizations [#4][i4]
-5. Write report [#5][i5]
+3. Build Datapipeline [#14][i14]
+4. Write data report [#15][i15]
+5. Perform analysis [#3][i3]
+6. Make visualizations [#4][i4]
+7. Write final report [#5][i5]
 
 [i1]: https://github.com/xilef45/made-s24/issues/6
 [i2]: https://github.com/xilef45/made-s24/issues/7
 [i3]: https://github.com/xilef45/made-s24/issues/8
 [i4]: https://github.com/xilef45/made-s24/issues/9
 [i5]: https://github.com/xilef45/made-s24/issues/10
+[i14]: https://github.com/xilef45/made-s24/issues/14
+[i15]: https://github.com/xilef45/made-s24/issues/15

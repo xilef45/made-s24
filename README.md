@@ -7,12 +7,12 @@
 This repository contains the project work and exercises for the course "MADE" in the summer semester 2024 at the FAU.
 
 ## Project Work
-In my project work I want to evaluate the effectiveness of carbon pricing in greenhouse gas emission reduction. I will use the World Bank's Carbon Pricing Dashboard and the Emissions Database for Global Atmospheric Research as data sources. 
+In my project I want to evaluate the effectiveness of carbon pricing in greenhouse gas emission reduction. I will use the World Bank's Carbon Pricing Dashboard and the Emissions Database for Global Atmospheric Research as data sources. 
 For more information see my [project plan](project/project-plan.md).
 
 ## Exercises
 
-The exercise submitions are placed in the `exercises` folder. Each exercise submission is named `excercise<number>.jy`. The exercises submitions are checked by the automated tests. The results of the tests can be seen in the badges above.
+The exercise submitions are placed in the `exercises` folder. Each exercise submission is named `excercise<number>.jy`. The exercise submitions are checked by the automated tests. The results of the tests can be seen in the badges above.
 
 
 # Template stuff

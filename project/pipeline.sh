@@ -1,2 +1,4 @@
 #!/bin/bash
-jv pipeline.jv
+# jv pipeline.jv
+pip install requests pandas
+python3 pipeline.py

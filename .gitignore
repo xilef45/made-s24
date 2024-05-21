@@ -6,3 +6,5 @@
 # no database + original data on git
 *.sqlite
 *.csv
+*.xlsx
+pipeline.jv

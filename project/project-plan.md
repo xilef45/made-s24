@@ -44,6 +44,7 @@ The project is structured into the following work packages. These are documented
 
 1. Analyse the data sources [#1][i1]
 2. Data pre-processing [#2][i2]
+3. Build Datapipeline [#14][i14]
 3. Perform analysis [#3][i3]
 4. Make visualizations [#4][i4]
 5. Write report [#5][i5]
@@ -53,3 +54,4 @@ The project is structured into the following work packages. These are documented
 [i3]: https://github.com/xilef45/made-s24/issues/8
 [i4]: https://github.com/xilef45/made-s24/issues/9
 [i5]: https://github.com/xilef45/made-s24/issues/10
+[i14]: https://github.com/xilef45/made-s24/issues/14

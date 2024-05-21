@@ -2,7 +2,7 @@
 
 ## Title
 <!-- Give your project a short title. -->
-Evaluation of the effectiveness of carbon pricing in greenhouse gas emissions reduction
+Evaluation of the effectiveness of carbon pricing in greenhouse gas emission reduction
 
 ## Main Question
 

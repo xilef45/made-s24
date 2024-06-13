@@ -28,6 +28,12 @@ pipeline GtfsPipeline {
     }  
 
 //  validated after https://gtfs.org/schedule/reference/#stopstxt
+    valuetype numeric oftype integer {
+    constraints: [ numericContraint ];
+    }
+
+    constraint numericContraint on integer :
+        value >= 0;
 
     valuetype latitude oftype decimal {
     constraints: [ latitudeContraint ];
@@ -56,7 +62,7 @@ pipeline GtfsPipeline {
     block GtfsTableInterpreter oftype TableInterpreter {
         header: true;
         columns: [
-            "stop_id" oftype text, 
+            "stop_id" oftype numeric,//text
             "stop_name" oftype text, 
             "stop_lat" oftype latitude, 
             "stop_lon" oftype longitude, 

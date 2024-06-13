@@ -52,7 +52,7 @@ pipeline GtfsPipeline {
         lowerBound: -90.0;
         upperBound: 90.0;
     }
-    valuetype zoneName oftype decimal {
+    valuetype zoneName oftype numeric {
         constraints: [zone1645];
     }
     constraint zone1645 oftype RangeConstraint {

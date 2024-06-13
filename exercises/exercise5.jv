@@ -1,0 +1,80 @@
+pipeline GtfsPipeline {
+
+    GtfsExtractor 
+        -> GtfsInterpreter
+        -> GtfsFilePicker
+        -> GtfsTextFileInterpreter
+        -> GtfsCSVInterpreter
+        -> GtfsTableInterpreter
+        -> GtfsLoader;
+
+    block GtfsExtractor oftype HttpExtractor {
+        url: "https://gtfs.rhoenenergie-bus.de/GTFS.zip";
+    }
+
+    block GtfsInterpreter oftype ArchiveInterpreter {
+         archiveType: "zip";
+    }
+
+    block GtfsFilePicker oftype FilePicker {
+        path: "/stops.txt";
+    }
+
+    block GtfsTextFileInterpreter oftype TextFileInterpreter { }
+
+    block GtfsCSVInterpreter oftype CSVInterpreter {
+        delimiter: ",";
+        enclosing: '"';
+    }  
+
+//  validated after https://gtfs.org/schedule/reference/#stopstxt
+    valuetype numeric oftype integer {
+    constraints: [ numericContraint ];
+    }
+
+    constraint numericContraint on integer :
+        value >= 0;
+
+    valuetype latitude oftype decimal {
+    constraints: [ latitudeContraint ];
+    }
+
+    constraint latitudeContraint oftype RangeConstraint{
+        lowerBound: -90;//-180.0;
+        upperBound: 90;//180.0;
+    }
+
+    valuetype longitude oftype decimal {
+    constraints: [ longitudeContraint ];
+    }
+
+    constraint longitudeContraint oftype RangeConstraint{
+        lowerBound: -90.0;
+        upperBound: 90.0;
+    }
+    valuetype zoneName oftype numeric {
+        constraints: [zone1645];
+    }
+    constraint zone1645 oftype RangeConstraint {
+       lowerBound: 1645;
+       lowerBoundInclusive: true;
+       upperBound: 1645;
+    }
+
+    block GtfsTableInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            "stop_id" oftype numeric,//text
+            "stop_name" oftype text, 
+            "stop_lat" oftype latitude, 
+            "stop_lon" oftype longitude, 
+            "zone_id" oftype zoneName
+        ];
+    }
+
+    block GtfsLoader oftype SQLiteLoader {
+        table: "stops";
+        file: "./gtfs.sqlite";
+    }
+
+}

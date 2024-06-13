@@ -8,3 +8,4 @@
 *.csv
 *.xlsx
 pipeline.jv
+/exercises/GTFS/*

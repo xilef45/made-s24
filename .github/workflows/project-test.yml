@@ -8,7 +8,7 @@ on:
       - project/**
 
 jobs:
-  project-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

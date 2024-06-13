@@ -25,4 +25,5 @@ jobs:
       - name: Run project test
         id: project-test
         run: |
-          ./project/tests.sh
+          cd project
+          bash tests.sh

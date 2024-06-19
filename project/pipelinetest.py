@@ -3,11 +3,11 @@ import sqlite3
 import pytest
 
 
-def test_assert_pipeline_output_exists():
+def test_online_assert_pipeline_output_exists():
     assert os.path.isfile("../data/data.sqlite")
 
 
-def test_assert_table_carbonprice_exists():
+def test_online_pipeline_assert_output_table_carbonprice_exists():
     conn = sqlite3.connect("../data/data.sqlite")
     cursor = conn.cursor()
 
@@ -17,7 +17,7 @@ def test_assert_table_carbonprice_exists():
     assert result is not None, "Table 'carbonPrice' does not exist."
 
 
-def test_assert_table_emissions_exists():
+def test_online_pipeline_assert_output_table_emissions_exists():
     conn = sqlite3.connect("../data/data.sqlite")
     cursor = conn.cursor()
 

@@ -79,8 +79,9 @@ plt.scatter([row[1] for row in pearsonr_results], [row[2] for row in pearsonr_re
 plt.xlabel("correlation coefficient")
 plt.ylabel("p-value")
 plt.title("Analyse of the correlation between emissions and carbon prices")
+plt.savefig('visualization/correlationScatter.png')
 plt.show()
-plt.savefig('correlationScatter.png')
+
 
 # draw a plot of the top ten emissions countries with carbon prices
 emissions_sum = []
@@ -110,8 +111,8 @@ plt.xlabel('Year')
 plt.ylabel('Total Emissions')
 plt.legend(title='Jurisdiction', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
+plt.savefig('visualization/emissions-top10.png')
 plt.show()
-plt.savefig('emissions-top10.png')
 
 years = list(range(1990, current_year))
 for row in top_ten_emitting_countries_carbonPrice:
@@ -121,5 +122,5 @@ plt.xlabel('Year')
 plt.ylabel('Carbon Price')
 plt.legend(title='Jurisdiction', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
+plt.savefig('visualization/carbonprice-top10.png')
 plt.show()
-plt.savefig('carbonprice-top10.png')

@@ -1,0 +1,67 @@
+// you can't delete header in xlsx with jayvee so I switched to python
+pipeline projectPipeline{
+    CarbonPriceExtractor -> CarbonPriceXLSXInterpreter;
+
+    CarbonPriceXLSXInterpreter
+        -> CarbonPriceSheetPicker
+        -> CarbonPriceTableInterpreter
+        -> ProjectLoader;
+    
+    block CarbonPriceExtractor oftype HttpExtractor {
+        url: "https://dev-rad-carbon-pricing.pantheonsite.io/sites/default/files/data-latest.xlsx";
+    }
+
+    block CarbonPriceXLSXInterpreter oftype XLSXInterpreter { }
+
+    block CarbonPriceSheetPicker oftype SheetPicker {
+        sheetName: "Compliance_Gen Info";
+    }
+    block TrainCargoHeaderWriter_AtoE oftype CellWriter { at: range A1:E1; write: ["year", "month", "goods_id","goods_name","goods_source"]; }
+
+    block TrainCargoHeaderWriter_ATtoAU oftype CellWriter { at: range AT1:AU1; write: ["abroad","total"]; }
+
+    block CarbonPriceTableInterpreter oftype TableInterpreter {
+       header: true;
+       columns: [
+            "Unique ID" oftype text,
+            "Instrument name" oftype text,
+            "Type" oftype text,
+            "Status" oftype text,
+            "Jurisdiction" oftype text,
+            "Share of jurisdiction emissions covered" oftype text,
+            "2019" oftype text,
+            "2020" oftype text,
+            "2021" oftype text,
+            "2022" oftype text,
+            "2023" oftype text,
+            "2024" oftype text,
+            "Gases covered" oftype text,
+            "Electricity and heat" oftype text,
+            "Industry" oftype text,
+            "Mining and extractives" oftype text,
+            "Transport" oftype text,
+            "Aviation" oftype text,
+            "Buildings" oftype text,
+            "Agriculture, forestry and fishing fuel use" oftype text,
+            "Agricultural emissions" oftype text,
+            "Waste" oftype text,
+            "LULUCF" oftype text,
+            "Fuels covered" oftype text,
+            "Allocation" oftype text,
+            "Price setting" oftype text,
+            "Point of regulation" oftype text,
+            "Offset eligibiity" oftype text,
+            "Description" oftype text,
+            "Recent developments" oftype text,
+            "Coverage" oftype text,
+            "Pricing and allocation" oftype text,
+            "Compliance" oftype text,
+            "Relation to other instruments" oftype text,
+       ];
+    }
+
+    block ProjectLoader oftype SQLiteLoader {
+        table: "carbon_price";
+        file: "./data/carbon_emissions_price.sqlite";
+    }
+}

@@ -80,6 +80,7 @@ plt.xlabel("correlation coefficient")
 plt.ylabel("p-value")
 plt.title("Analyse of the correlation between emissions and carbon prices")
 plt.show()
+plt.savefig('correlationScatter.png')
 
 # draw a plot of the top ten emissions countries with carbon prices
 emissions_sum = []
@@ -104,19 +105,21 @@ for country in top_ten_emitting_countries:
 years = list(range(1970, 2022))
 for row in top_ten_emitting_countries_emissions:
     plt.plot(years, row[3:], label=row[1])
-plt.title('Total Emissions of the top-ten emitting Jurisdictions over the years')
+plt.title('Total Emissions of the top-ten emitting \n Jurisdictions with carbon price')
 plt.xlabel('Year')
 plt.ylabel('Total Emissions')
 plt.legend(title='Jurisdiction', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.show()
+plt.savefig('emissions-top10.png')
 
 years = list(range(1990, current_year))
 for row in top_ten_emitting_countries_carbonPrice:
     plt.plot(years, row[4:], label=row[0])
-plt.title('Average Carbon Price of the top-ten emitting Jurisdictions with carbon price over the years')
+plt.title('Average Carbon Price of the top-ten emitting \n Jurisdictions with carbon price')
 plt.xlabel('Year')
 plt.ylabel('Carbon Price')
 plt.legend(title='Jurisdiction', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.show()
+plt.savefig('carbonprice-top10.png')

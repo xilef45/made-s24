@@ -4,11 +4,12 @@
 
 # Methods of Advanced Data Engineering (MADE SS24) - Felix Lang
 
-This repository contains the project work and exercises for the course "MADE" in the summer semester 2024 at the FAU.
+This repository contains my project work and exercise submissions for the course "MADE" in the summer semester 2024 at the FAU.
 
-## Project Work
-In my project I want to evaluate the effectiveness of carbon pricing in greenhouse gas emission reduction. I will use the World Bank's Carbon Pricing Dashboard and the Emissions Database for Global Atmospheric Research as data sources. 
-For more information see my [project plan](project/project-plan.md).
+## Project Work - Evaluation of the effectiveness of carbon pricing in greenhouse gas emission reduction
+In my project I want to evaluate the effectiveness of carbon pricing in greenhouse gas emission reduction. I will use the World Bank's Carbon Pricing Dashboard and the Emissions Database for Global Atmospheric Research as data sources. For more information about the used data, please see my [data report](project/data-report.md). 
+The project aims to answer the question: How effective are carbon pricing policies in reducing greenhouse gas emissions?
+The results can be seen in the [final report](project/final-report.md).
 
 ## Exercises
 

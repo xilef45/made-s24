@@ -64,6 +64,7 @@ for country_data in merged_data:
     pearsonr_results.append((country_data[0][0], correlation_coefficient, p_value))
 
 # Interpret the results
+pearsonr_results = [row for row in pearsonr_results if not np.isnan(row[1]) and not np.isnan(row[2])]
 max_correlation_coefficient = max([row[1] for row in pearsonr_results])
 min_correlation_coefficient = min([row[1] for row in pearsonr_results])
 avg_correlation_coefficient = np.mean([row[1] for row in pearsonr_results])
@@ -78,7 +79,7 @@ std_p_value = np.std([row[2] for row in pearsonr_results])
 plt.scatter([row[1] for row in pearsonr_results], [row[2] for row in pearsonr_results])
 plt.xlabel("correlation coefficient")
 plt.ylabel("p-value")
-plt.title("Analyse of the correlation between emissions and carbon prices")
+plt.title("Scatterplot between emissions and carbon prices")
 plt.savefig('visualization/correlationScatter.png')
 plt.show()
 

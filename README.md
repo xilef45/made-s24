@@ -14,8 +14,7 @@ In my project I want to evaluate the effectiveness of carbon pricing in greenhou
 <td><img src="./project/visualization/emissions-top10.png" alt="Emmisions of the TOP 10 emiting contries from 1970 till today" width="300"/></td>
 </tr>
 </table>
-The project aims to answer the question: How effective are carbon pricing policies in reducing greenhouse gas emissions?
-The results can be seen in the [final report](project/final-report.md).
+The project aims to answer the question: How effective are carbon pricing policies in reducing greenhouse gas emissions? A detailed description of the project can be found in the [analysis report](project/analysis-report.md). The analysis indicates a weak negative correlation between the emissions and the price. This suggests that carbon pricing policies have only a limited effect on greenhouse gas emissions. However, the correlation is statistically significant, indicating that there is some evidence that carbon pricing policies do have an effect on the total emissions. Nevertheless, this is a preliminary finding that requires further research to gain a more comprehensive understanding of the effectiveness of carbon pricing policies. This could entail a more comprehensive examination of the data, with a focus on the impact of distinct types of carbon pricing policies and an assessment of the efficacy of carbon pricing policies in comparison to other climate change mitigation strategies.
 
 ## Exercises
 

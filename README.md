@@ -10,8 +10,8 @@ This repository contains my project work and exercise submissions for the course
 In my project I want to evaluate the effectiveness of carbon pricing in greenhouse gas emission reduction. I will use the World Bank's Carbon Pricing Dashboard and the Emissions Database for Global Atmospheric Research as data sources. For more information about the used data, please see my [data report](project/data-report.md). 
 <table>
 <tr>
-<td><img src="./visualization/carbonprice-top10.png" alt="The Carbon Price from the year 1990 till today of the TOP10 emitting countries" width="300"/></td>
-<td><img src="./visualization/emissions-top10.png" alt="Emmisions of the TOP 10 emiting contries from 1970 till today" width="300"/></td>
+<td><img src="./project/visualization/carbonprice-top10.png" alt="The Carbon Price from the year 1990 till today of the TOP10 emitting countries" width="300"/></td>
+<td><img src="./project/visualization/emissions-top10.png" alt="Emmisions of the TOP 10 emiting contries from 1970 till today" width="300"/></td>
 </tr>
 </table>
 The project aims to answer the question: How effective are carbon pricing policies in reducing greenhouse gas emissions?
